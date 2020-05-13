@@ -1,33 +1,29 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 class ResistorColorDuo {
 
     int value(String[] colors) {
 
-        Map<String, Integer> COLOURS = new HashMap<>();
-        COLOURS.put("black", 0);
-        COLOURS.put("brown", 1);
-        COLOURS.put("red", 2);
-        COLOURS.put("orange", 3);
-        COLOURS.put("yellow", 4);
-        COLOURS.put("green", 5);
-        COLOURS.put("blue", 6);
-        COLOURS.put("violet", 7);
-        COLOURS.put("grey", 8);
-        COLOURS.put("white", 9);
+        List<String> colorCodesList = List.of(new String[]{
 
-        StringBuilder resistanceValue = new StringBuilder();
-        for (int i = 0; i < 2; i++) {
+                "black",
+                "brown",
+                "red",
+                "orange",
+                "yellow",
+                "green",
+                "blue",
+                "violet",
+                "grey",
+                "white"
 
-            String colour = colors[i];
+        });
 
-            if (COLOURS.containsKey(colour))
-                resistanceValue.append(COLOURS.get(colour).toString());
+        return colorCodesList.indexOf(colors[0]) * 10 + colorCodesList.indexOf(colors[1]);
 
-        }
 
-        return Integer.valueOf(resistanceValue.toString());
     }
 
 }
